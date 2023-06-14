@@ -1,5 +1,5 @@
 'use client'
-import { META } from "@consumet/extensions";
+import axios from "axios";
 import { createContext, useContext } from "react";
 import { useQuery } from "react-query";
 
@@ -12,36 +12,17 @@ export function useAnime() {
 
 export function AnimeProvider({ children }) {
 
-
-    const fetchTAnime = async () => {
-        const getAnime = new META.Anilist();
-        const results = await getAnime.fetchTrendingAnime();
-        return results
-    }
-
-    const fetchRAnime = async () => {
-        const getAnime = new META.Anilist();
-        const results = await getAnime.fetchRecentEpisodes();
-        return results
-    }
-
-    const fetchPAnime = async () => {
-        const getAnime = new META.Anilist();
-        const results = await getAnime.fetchPopularAnime();
-        return results
-    }
-
-    const fetchAnimeS = async () => {
-        const getAnime = new META.Anilist();
-        const results = await getAnime.fetchAiringSchedule();
-        return results
-    }
-
     const fetchAnimeInfo = async (id) => {
-        const getAnime = new META.Anilist();
-        const results = await getAnime.fetchAnimeInfo(id);
-        return results
-    }
+        try {
+            const url = `https://api.consumet.org/meta/anilist/info/${id}`;
+            const { data } = await axios.get(url);
+            const results = data
+            return results
+        } catch (err) {
+            console.log(err)
+        }
+
+    };
 
 
     const QueryFn = (aid) => {

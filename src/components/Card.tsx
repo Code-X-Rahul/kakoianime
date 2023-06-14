@@ -19,7 +19,7 @@ const Card = ({ image, title, id, status, height, width }: any) => {
             width={"100"}
             height={"100"}
             src={image}
-            className="w-[100%] h-full object-cover hover:opacity-60"
+            className="flex w-[100%] h-full object-cover hover:opacity-60"
             alt={title?.romaji}
           />
         </div>

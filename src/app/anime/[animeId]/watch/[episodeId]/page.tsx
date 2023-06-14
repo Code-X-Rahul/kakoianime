@@ -27,6 +27,8 @@ const Watch = ({ params }: any) => {
     queryFn: () => fetchEpisodeInfo(episodeId),
   });
 
+  document.title = `${info?.data?.title?.romaji} | Kakoi`;
+
   if (eInfoQuery.isLoading) return <LoadingPage />;
   if (eInfoQuery.isError) return <h1>Error loading data!!!</h1>;
 

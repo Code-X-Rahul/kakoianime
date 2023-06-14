@@ -65,7 +65,7 @@ const SignUpModal = () => {
                     <input ref={password} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="password" placeholder="Password" />
                     {!login && <input ref={confirmPassword} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="password" placeholder="Confirm Password" />}
                     <button onClick={userHandler} className="bg-teal-500 text-white p-2 rounded-lg my-2">{login ? "Login" : "Sign Up"}</button>
-                    <p className="text-sm text-gray-700">Don't have an account?<span onClick={() => setLogin(!login)} className="text-sm text-teal-700 cursor-pointer"> {login ? "Register" : "Login"}</span></p>
+                    <p className="text-sm text-gray-700">Don&apos;t have an account?<span onClick={() => setLogin(!login)} className="text-sm text-teal-700 cursor-pointer"> {login ? "Register" : "Login"}</span></p>
 
                 </form>
             </DialogContent>

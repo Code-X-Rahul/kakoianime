@@ -14,6 +14,12 @@ const nextConfig = {
             port: '',
             pathname: '/file/anilistcdn/media/manga/**',
           },
+          {
+            protocol: 'https',
+            hostname: "s4.anilist.co",
+            port: '',
+            pathname: '/file/anilistcdn/character/large/**',
+          },
         ],
       },
 }

@@ -1,6 +1,6 @@
 import { Skeleton } from "../shadcdn/skeleton"
 
-const LoadingPage = () => {
+const loading = () => {
     return (
         <div className="mx-5">
             <div className="flex">
@@ -26,4 +26,4 @@ const LoadingPage = () => {
     )
 }
 
-export default LoadingPage
+export default loading
