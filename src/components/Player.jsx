@@ -41,7 +41,7 @@ const Player = ({ animeStreamInfo, option, getInstance, ...rest }) => {
                 {
                     html: 'Quality',
                     width: 150,
-                    tooltip: '1080P',
+                    tooltip: '360p',
                     selector: select,
                     onSelect: function (item, $dom, event) {
                         console.info(item, $dom, event);

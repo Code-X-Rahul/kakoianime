@@ -11,8 +11,8 @@ import LoadingPage from "../../../../../components/LoadingPage";
 const Watch = ({ params }: any) => {
   const { episodeId, animeId } = params;
 
-  const { queryFn } = useAnime();
-  const info = queryFn(animeId);
+  const { QueryFn } = useAnime();
+  const info = QueryFn(animeId);
 
   const fetchEpisodeInfo = async (id: string | Number) => {
     const url = `https://api.consumet.org/meta/anilist/watch/${id}`;

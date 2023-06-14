@@ -8,8 +8,8 @@ import LoadingPage from "../../../components/LoadingPage";
 const Anime = ({params}:any) => {
     const { animeId } = params
     
-    const { queryFn } = useAnime();
-    const info = queryFn(animeId);
+    const { QueryFn } = useAnime();
+    const info = QueryFn(animeId);
 
     if (info.isLoading) return (<LoadingPage/>)
     if (info.isError) return (<h1>Error loading data!!!</h1>)
