@@ -24,7 +24,6 @@ export function AnimeProvider({ children }) {
 
     };
 
-
     const QueryFn = (aid) => {
         const infoQuery = useQuery({
             queryKey: ['info', aid],
@@ -37,7 +36,7 @@ export function AnimeProvider({ children }) {
 
 
     return (
-        <AnimeContext.Provider value={{ QueryFn, fetchTAnime, fetchPAnime, fetchRAnime, fetchAnimeS }}>
+        <AnimeContext.Provider value={{ QueryFn }}>
             {children}
         </AnimeContext.Provider>
     );
