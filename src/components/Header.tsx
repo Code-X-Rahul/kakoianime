@@ -4,9 +4,10 @@ import { RiSearchLine } from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { RxPerson } from "react-icons/rx";
 import Form from "./Form"
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import SignUpModal from './SignUpModal'
-import { useAuth } from '../UserContext'
+import { useAuth } from '../context/UserContext'
+import Image from 'next/image';
 const Header = () => {
     const { user } = useAuth()
 
@@ -17,8 +18,8 @@ const Header = () => {
                     <button className="text-black bg-slate-50 p-2 rounded-full text-lg mx-2 ">
                         <AiOutlineMenu />
                     </button>
-                    <Link to="/">
-                        <img src={logo} alt="logo" className="w-20 mx-4" />
+                    <Link href="/">
+                        <Image src={logo} alt="logo" className="w-[10rem] mx-4" />
                     </Link>
                     {/* <div className="flex justify-between">
                             <ul className="flex justify-center items-center">
@@ -36,7 +37,7 @@ const Header = () => {
                         <RiSearchLine />
                     </button>
                     {!user && <SignUpModal />}
-                    {user && <Link className='text-black bg-slate-50 p-2 rounded-full text-lg mx-2' to="/dashboard"><RxPerson /></Link>}
+                    {user && <Link className='text-black bg-slate-50 p-2 rounded-full text-lg mx-2' href="/dashboard"><RxPerson /></Link>}
                 </div>
             </nav>
             <Form />

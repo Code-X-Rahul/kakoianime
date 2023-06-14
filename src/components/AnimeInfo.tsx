@@ -16,7 +16,7 @@ const AnimeInfo = ({ info, animeId }:any) => {
                 <h1 className="text-2xl py-1  text-teal-400">Episodes</h1>
                 <div className="grid grid-cols-6 gap-3 p-2 py-4 hide-scrollbar">
                     {info.data && reversedEp.map((episode:any) =>
-                        <Link href={`../anime/${animeId}/watch/${episode?.id}`} className="bg-zinc-950 rounded-lg flex justify-center items-center hover:bg-zinc-900 transition-all ease-in-out" key={episode.id}>
+                        <Link href={`/anime/${animeId}/watch/${episode?.id}`} className="bg-zinc-950 rounded-lg flex justify-center items-center hover:bg-zinc-900 transition-all ease-in-out visited:bg-zinc-700" key={episode.id}>
                             <span className="py-3 px-4">{episode?.number}</span>
                         </Link>
                     )}

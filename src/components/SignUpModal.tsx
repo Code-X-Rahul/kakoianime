@@ -9,39 +9,37 @@ import {
     DialogTrigger,
 } from "../shadcdn/dialog"
 
-import { useAuth } from "../UserContext"
+import { useAuth } from "../context/UserContext"
 import { useState, useRef } from "react"
 
 const SignUpModal = () => {
     const [login, setLogin] = useState(true)
-    const userName = useRef();
-    const password = useRef();
-    const confirmPassword = useRef();
-
-
+    const userName = useRef<HTMLInputElement>(null);
+    const password = useRef<HTMLInputElement>(null);
+    const confirmPassword = useRef<HTMLInputElement>(null);
 
     const { user, signIn, signUp, gLogin } = useAuth()
 
 
-
-    const userHandler = async (e) => {
+    const userHandler = async (e:any) => {
         e.preventDefault()
         try {
             if (login) {
-                await signIn(userName.current.value, password.current.value)
+                await signIn(userName?.current?.value, password?.current?.value)
                 alert("login")
                 return
             }
-            if (password.current.value !== confirmPassword.current.value) return alert("password does not match")
-            await signUp(userName.current.value, password.current.value)
-        } catch (error) {
+            if (password?.current?.value !== confirmPassword?.current?.value) return alert("password does not match")
+            await signUp(userName?.current?.value, password?.current?.value)
+        } catch (error:any) {
             alert(error.message)
+            
         }
     }
     const googleLogin = async () => {
         try {
             await gLogin()
-        } catch (error) {
+        } catch (error:any) {
             alert(error.message)
         }
     }
