@@ -7,8 +7,8 @@ const Footer = () => {
             <div className='w-[8rem]'>
                 <Image className='w-full h-full' src={logo} alt="mangekyoreader.to" />
             </div>
-            <p className='text-md text-slate-300 m-1'>
-                Copyright © MangekyoReader.to. All Rights Reserved
+            <p className='text-md text-slate-300 m-1 text-center'>
+                Copyright © KakoiAnime.to. All Rights Reserved
             </p>
             <div className='flex flex-col items-center justify-center text-slate-300'>
                 <p className='text-sm text-center px-4 my-1'>

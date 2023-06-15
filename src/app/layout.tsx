@@ -5,6 +5,8 @@ import { AnimeProvider } from "../context/AnimeContext.jsx";
 import QueryWrapper from "@/wrappers/queryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +27,7 @@ export default function RootLayout({
           <UserProvider>
             <AnimeProvider>
               <Header />
-              {children}
+              <Suspense fallback={<Loading />}>{children}</Suspense>
               <Footer />
             </AnimeProvider>
           </UserProvider>

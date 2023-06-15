@@ -32,9 +32,6 @@ export function AnimeProvider({ children }) {
         return infoQuery
     }
 
-
-
-
     return (
         <AnimeContext.Provider value={{ QueryFn }}>
             {children}

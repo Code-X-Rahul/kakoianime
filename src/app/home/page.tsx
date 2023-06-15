@@ -1,3 +1,4 @@
+'use client'
 import Slider from "../../components/Slider";
 import Card from "../../components/Card";
 import axios from "axios";

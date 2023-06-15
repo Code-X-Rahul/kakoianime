@@ -1,5 +1,4 @@
 'use client'
-
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useAnime } from "../../../../../context/AnimeContext";
@@ -27,7 +26,6 @@ const Watch = ({ params }: any) => {
     queryFn: () => fetchEpisodeInfo(episodeId),
   });
 
-  document.title = `${info?.data?.title?.romaji} | Kakoi`;
 
   if (eInfoQuery.isLoading) return <LoadingPage />;
   if (eInfoQuery.isError) return <h1>Error loading data!!!</h1>;
@@ -39,7 +37,7 @@ const Watch = ({ params }: any) => {
   };
 
   return (
-    <>
+    <main className="md:w-[70%]">
       {eInfoQuery.status === "success" && (
         <Player
           option={""}
@@ -49,7 +47,7 @@ const Watch = ({ params }: any) => {
       )}
       <div>
         <h1 className="text-2xl font-bold text-center">
-          {info?.data?.title?.romaji}
+          {info?.data?.title?.romaji}- Episode {eInfoQuery?.data?.episodeNumber}
         </h1>
       </div>
       {info && (
@@ -60,7 +58,7 @@ const Watch = ({ params }: any) => {
       <div className="py-10 px-3">
         <DiscussionEmbed shortname="mangekyoreader" config={disqusConfig} />
       </div>
-    </>
+    </main>
   );
 };
 
