@@ -15,16 +15,17 @@ const Form = () => {
   };
 
   return (
-    <form className="flex items-center relative px-2 py-3 ">
+    <form className="flex items-center justify-center relative pt-3 w-[90%] mx-auto">
       <input
-        className="text-black w-[90%] mx-auto h-8"
+        className="text-black w-[100%] mx-auto h-8 px-4 rounded-2xl"
         type="text"
+        placeholder="One Piece"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
       <button
         type="submit"
-        className="absolute right-11"
+        className="absolute right-4"
         onClick={handleSubmit}
       >
         <RiSearchLine />

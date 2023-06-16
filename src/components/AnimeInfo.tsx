@@ -31,7 +31,7 @@ const AnimeInfo = ({ info, animeId }: any) => {
         <div
           className={`grid grid-cols-6 gap-3 p-2 py-4 hide-scrollbar ${
             reversedEp.length > 50 && "h-72 overflow-hidden overflow-y-scroll"
-          }`}
+          } md:grid-cols-8 lg:grid-cols-12 `}
         >
           {info.data &&
             reversedEp.map((episode: any) => (

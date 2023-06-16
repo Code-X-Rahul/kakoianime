@@ -20,6 +20,8 @@
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "disqus-react": "^1.1.5",
+    "embla-carousel-autoplay": "^8.0.0-rc07",
+    "embla-carousel-react": "^8.0.0-rc07",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "firebase": "^9.22.2",

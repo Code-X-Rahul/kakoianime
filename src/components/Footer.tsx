@@ -14,7 +14,7 @@ const Footer = () => {
                 <p className='text-sm text-center px-4 my-1'>
                     Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.
                 </p>
-                <p>Made with <span className='text-red-600'>&#10084;</span> for anime users!</p>
+                <p className='text-center'>Made with <span className='text-red-600'>&#10084;</span> for anime users!</p>
             </div>
         </footer>
     )
