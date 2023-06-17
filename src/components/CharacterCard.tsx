@@ -7,7 +7,7 @@ const CharacterCard = ({characters, title}:any) => {
                 Characters
             </h1>
             <div className='flex justify-start items-center'>
-                <div className='grid gap-1 grid-flow-col px-1 py-2 bg-zinc-800 h-auto overflow-x-scroll hide-scrollbar'>
+                <div className='grid gap-1 grid-flow-col px-1 py-2 h-auto overflow-x-scroll hide-scrollbar'>
                     {characters?.map((c:any) => (
                         <Link href={`../${title}/character/${c.id}`} className={` relative w-[8rem] h-60 overflow-hidden bg-sky-300 rounded-sm hover:scale-105 transition-all ease-in grid`} key={c.id}>
                             <div className="bg-zinc-900"><Image width={100} height={100} src={c.image} className='w-[100%] h-full object-cover hover:opacity-60' alt={c.name?.full} /></div>

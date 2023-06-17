@@ -30,7 +30,7 @@ const AnimeInfo = ({ info, animeId }: any) => {
         <h1 className="text-2xl py-1  text-teal-400">Episodes</h1>
         <div
           className={`grid grid-cols-6 gap-3 p-2 py-4 hide-scrollbar ${
-            reversedEp.length > 50 && "h-72 overflow-hidden overflow-y-scroll"
+            reversedEp?.length > 50 && "h-72 overflow-hidden overflow-y-scroll"
           } md:grid-cols-8 lg:grid-cols-12 `}
         >
           {info.data &&

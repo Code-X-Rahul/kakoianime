@@ -19,7 +19,6 @@ const Home = () => {
     queryFn: () => fetchPAnime(),
   });
 
-
   const {
     data: recentAnime,
     isLoading,
@@ -42,11 +41,7 @@ const Home = () => {
     fetchNextPage();
   };
 
-  if (
-    trendingAnime.isLoading ||
-    popularQuery.isLoading ||
-    isLoading
-  )
+  if (trendingAnime.isLoading || popularQuery.isLoading || isLoading)
     return <LoadingPage />;
 
   if (trendingAnime.isError || isError)
@@ -57,14 +52,14 @@ const Home = () => {
   return (
     <>
       <EmblaCarousel {...trendingAnime?.data} />
-      <section className="bg-zinc-800 scroll-smooth">
+      <section className="scroll-smooth">
         <Slider type={trendingAnime?.data?.results} heading="Trending Anime" />
         <Slider type={popularQuery?.data?.results} heading="Popular Anime" />
         <div className="flex justify-start items-center flex-col">
           <h1 className="text-3xl text-yellow-500 px-4 py-2 ">
             Recent Episodes
           </h1>
-          <div className="grid gap-2 grid-cols-2 px-4 py-2 bg-zinc-800 h-auto md:grid-cols-4 lg:grid-cols-6">
+          <div className="grid gap-2 grid-cols-2 px-4 py-2  h-auto md:grid-cols-4 lg:grid-cols-6">
             {recentAnime?.pages?.map((page: any) =>
               page?.results.map((anime: any) => (
                 <Card key={anime?.id} height="full" width="100%" {...anime} />
@@ -74,13 +69,12 @@ const Home = () => {
         </div>
         <button
           onClick={fetch}
-          className="text-2xl text-slate-100 p-5 bg-zinc-900 w-full"
-          disabled={!hasNextPage}
+          className="text-2xl text-slate-100 p-5 w-full"
+          disabled={!hasNextPage||isFetchingNextPage}
         >
-          Load More....
+          {isFetchingNextPage ? "Loading..." : "Load More...."}
         </button>
-        {isFetchingNextPage && <h1 className="text-3xl text-white mx-auto">Loading...</h1>}
-      </section>
+    </section>
     </>
   );
 };
