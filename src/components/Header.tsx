@@ -66,7 +66,7 @@ const Header = () => {
         <div
           className={`${!searchBar&&"hidden"} transition-all md:hidden`}
         >
-          <Form />
+          <Form search={setSearchBar}/>
         </div>
       </header>
       <aside

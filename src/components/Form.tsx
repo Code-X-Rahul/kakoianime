@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 
-const Form = () => {
+const Form = ({search}:any) => {
   const [query, setQuery] = useState("");
   const navigate = useRouter();
 
@@ -12,6 +12,7 @@ const Form = () => {
     if (query === "") return;
     navigate.push(`/search/${query}`);
     setQuery("");
+    search(false)
   };
 
   return (
