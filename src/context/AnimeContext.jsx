@@ -1,10 +1,19 @@
 'use client'
 import axios from "axios";
 import { createContext, useContext } from "react";
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 
 const AnimeContext = createContext();
 
+
+// const popularQuery = useInfiniteQuery({
+//     queryKey: ["popularQuery"],
+//     queryFn: ({ pageParam = 1 }) => fetchPAnime(pageParam),
+//     getNextPageParam: (lastPage, allPages) => {
+//         const nextPage = lastPage.hasNextPage === true ? allPages.length + 1 : undefined;
+//         return nextPage;
+//     },
+// });
 
 export function useAnime() {
     return useContext(AnimeContext);
@@ -28,18 +37,18 @@ export function AnimeProvider({ children }) {
     };
 
 
-    const fetchTAnime = async () => {
-        const results = await fetchAnime('trending', 10, 1);
+    const fetchTAnime = async (pageParam) => {
+        const results = await fetchAnime('trending', 10, pageParam);
         return results
     }
 
-    const fetchRAnime = async () => {
-        const results = await fetchAnime('recent-episodes', 10, 1);
+    const fetchRAnime = async (pageParam) => {
+        const results = await fetchAnime('recent-episodes', 10, pageParam);
         return results
     }
 
-    const fetchPAnime = async () => {
-        const results = await fetchAnime('popular', 10, 1);
+    const fetchPAnime = async (pageParam) => {
+        const results = await fetchAnime('popular', 10, pageParam);
         return results
     }
 
