@@ -1,4 +1,5 @@
 'use client'
+import { META } from "@consumet/extensions";
 import axios from "axios";
 import { createContext, useContext } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
@@ -38,7 +39,10 @@ export function AnimeProvider({ children }) {
 
 
     const fetchTAnime = async (pageParam) => {
-        const results = await fetchAnime('trending', 10, pageParam);
+        // const results = await fetchAnime('trending', 10, pageParam);
+        const getAnime = new META.Anilist();
+        const results = await getAnime.fetchTrendingAnime();
+        return results
         return results
     }
 
@@ -48,7 +52,9 @@ export function AnimeProvider({ children }) {
     }
 
     const fetchPAnime = async (pageParam) => {
-        const results = await fetchAnime('popular', 10, pageParam);
+        // const results = await fetchAnime('popular', 10, pageParam);
+        const getAnime = new META.Anilist();
+        const results = await getAnime.fetchPopularAnime();
         return results
     }
 
