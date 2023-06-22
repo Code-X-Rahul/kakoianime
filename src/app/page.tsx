@@ -31,7 +31,7 @@ export default function Home() {
           required. Our content is updated daily with fast streaming servers and
           great features that help you easily track and watch your favorite
           anime. We are confident Kakoianime is the best free anime streaming
-          site in the space that you can't simply miss!
+          site in the space that you can&apos;t simply miss!
         </p>
         <p className="text-center text-md m-4">
           Please help us by sharing this site with your friends. Thanks!

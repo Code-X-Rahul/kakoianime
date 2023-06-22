@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`max-w-screen-2xl mx-auto ${inter.className}`}>
+      <body className={`max-w-screen-2xl mx-auto min-h-screen ${inter.className}`}>
         <QueryWrapper>
           <UserProvider>
             <AnimeProvider>
