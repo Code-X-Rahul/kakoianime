@@ -2,7 +2,7 @@ import Image from 'next/image'
 import logo from '../assets/logo.png'
 const Footer = () => {
     return (
-        <footer className='flex flex-col justify-center items-center my-6 mt-auto'>
+        <footer className='flex flex-col justify-center items-center mt-auto absolute bottom-1 left-0 right-0'>
             <a className='text-2xl text-teal-500 animate-bounce mt-4' href="#header"> ^..^ BACK TO TOP ^..^</a>
             <div className='w-[8rem]'>
                 <Image className='w-full h-full' src={logo} alt="mangekyoreader.to" />

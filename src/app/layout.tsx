@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import { UserProvider } from "../context/UserContext.jsx";
 import { AnimeProvider } from "../context/AnimeContext.jsx";
 // import { DbProvider } from "../context/DbContext.jsx";
@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({weight:"400", subsets: ["vietnamese"]});
 
 export const metadata = {
   title: "Kakoi Anime",
@@ -24,16 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`max-w-screen-2xl mx-auto min-h-screen ${inter.className}`}
+        className={`max-w-screen-2xl mx-auto min-h-screen relative pb-[12rem] ${roboto.className}`}
       >
         <QueryWrapper>
           <UserProvider>
             {/* <DbProvider> */}
-              <AnimeProvider>
-                <Header />
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-                <Footer />
-              </AnimeProvider>
+            <AnimeProvider>
+              <Header />
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+              <Footer />
+            </AnimeProvider>
             {/* </DbProvider> */}
           </UserProvider>
         </QueryWrapper>

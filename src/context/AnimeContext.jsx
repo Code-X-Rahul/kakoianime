@@ -50,7 +50,6 @@ export function AnimeProvider({ children }) {
         const getAnime = new META.Anilist();
         const results = await getAnime.fetchRecentEpisodes();
         return results
-        return results
     }
 
     const fetchPAnime = async (pageParam) => {
@@ -67,28 +66,8 @@ export function AnimeProvider({ children }) {
     // }
 
 
-    const fetchAnimeInfo = async (id) => {
-        try {
-            // const url = `https://api.consumet.org/meta/anilist/info/${id}`;
-            // const { data } = await axios.get(url, { params: { page: pageNo } });
-            const getAnime = new META.Anilist();
-            const results = await getAnime.fetchAnimeInfo(id);
-            return results
-        } catch (err) {
-            console.log(err)
-        }
-    };
-
-    const QueryFn = (aid) => {
-        const infoQuery = useQuery({
-            queryKey: ['info', aid],
-            queryFn: () => fetchAnimeInfo(aid)
-        })
-        return infoQuery
-    }
-
     return (
-        <AnimeContext.Provider value={{ QueryFn, fetchTAnime, fetchPAnime, fetchRAnime, }}>
+        <AnimeContext.Provider value={{ fetchTAnime, fetchPAnime, fetchRAnime, }}>
             {children}
         </AnimeContext.Provider>
     );
