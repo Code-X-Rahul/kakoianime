@@ -59,7 +59,7 @@ const Home = () => {
           <h1 className="text-3xl text-yellow-500 px-4 py-2 ">
             Recent Episodes
           </h1>
-          <div className="grid gap-2 grid-cols-2 px-4 py-2  h-auto md:grid-cols-4 lg:grid-cols-6">
+          <div className="grid gap-2 grid-cols-2 px-4 py-2  h-auto md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
             {recentAnime?.pages?.map((page: any) =>
               page?.results.map((anime: any) => (
                 <Card key={anime?.id} height="full" width="100%" {...anime} />
@@ -70,11 +70,11 @@ const Home = () => {
         <button
           onClick={fetch}
           className="text-2xl text-slate-100 p-5 w-full"
-          disabled={!hasNextPage||isFetchingNextPage}
+          disabled={!hasNextPage || isFetchingNextPage}
         >
           {isFetchingNextPage ? "Loading..." : "Load More...."}
         </button>
-    </section>
+      </section>
     </>
   );
 };

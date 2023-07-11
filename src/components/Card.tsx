@@ -12,7 +12,7 @@ const Card = ({ image, title, id, status, height, width }: any) => {
     <>
       <Link
         href={`../anime/${id}`}
-        className={` relative w-[${width}] h-${height} overflow-hidden bg-sky-300 rounded-sm hover:scale-105 transition-all ease-in grid`}
+        className={` relative w-[${width}] h-${height} overflow-hidden rounded-sm hover:scale-105 transition-all ease-in grid`}
       >
         <div className="bg-zinc-900">
           <Image
@@ -24,7 +24,7 @@ const Card = ({ image, title, id, status, height, width }: any) => {
           />
         </div>
         <div className="line-clamp-2 overflow-hidden h-12 ">
-          <h1 className="text-center px-3 text-zinc-900">{title?.romaji}</h1>
+          <h1 className="text-center px-3 text-zinc-100">{title?.romaji}</h1>
         </div>
         {status === "Ongoing" && (
           <h3 className="text-center text-sm px-1 absolute top-0 right-0 bg-teal-400 rounded-bl-lg">

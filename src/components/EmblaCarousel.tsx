@@ -2,24 +2,24 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 
-export const EmblaCarousel = ({ image, results }: any) => {
+export const EmblaCarousel = ({ results }: any) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
     <div className="embla" ref={emblaRef}>
-      <div className="embla__container h-[20rem]">
+      <div className="embla__container h-[20rem] md:h-[25rem] lg:h-[30rem]">
         {results?.map((e: any) => (
           <div key={e.id} className="embla__slide relative">
             <img
-              className="w-full h-full object-cover object-top z-0"
-              src={e.image}
+              className="w-full h-full object-cover  z-0"
+              src={e.cover}
               alt={e.title.romaji}
             />
-            <div className="z-10 absolute inset-0 bg_linear flex items-end">
+            <div className="z-10 absolute inset-0 bg-gradient-to-tr from-black to-transparent flex items-end">
               <div className="w-full overflow-hidden m-4">
-                <h1 className="text-xl text-slate-100 font-bold font-serif ">{e?.title?.romaji}</h1>
+                <h1 className="text-xl text-slate-100 font-bold font-serif xl:text-3xl">{e?.title?.romaji}</h1>
                 <p
-                  className="line-clamp-2 text-zinc-200 my-2  text-xs overflow-hidden"
+                  className="line-clamp-3 text-zinc-200 my-2  text-xs overflow-hidden xl:text-xl"
                   dangerouslySetInnerHTML={{ __html: e?.description }}
                 ></p>
                 <div className="py-1 my-2">

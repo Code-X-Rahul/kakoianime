@@ -39,7 +39,6 @@ export function AnimeProvider({ children }) {
 
 
     const fetchTAnime = async (pageParam) => {
-        // const results = await fetchAnime('trending', 10, pageParam);
         const getAnime = new META.Anilist();
         const results = await getAnime.fetchTrendingAnime();
         return results
@@ -47,7 +46,10 @@ export function AnimeProvider({ children }) {
     }
 
     const fetchRAnime = async (pageParam) => {
-        const results = await fetchAnime('recent-episodes', 10, pageParam);
+        // const results = await fetchAnime('recent-episodes', 10, pageParam);
+        const getAnime = new META.Anilist();
+        const results = await getAnime.fetchRecentEpisodes();
+        return results
         return results
     }
 
@@ -65,11 +67,12 @@ export function AnimeProvider({ children }) {
     // }
 
 
-    const fetchAnimeInfo = async (id, pageNo) => {
+    const fetchAnimeInfo = async (id) => {
         try {
-            const url = `https://api.consumet.org/meta/anilist/info/${id}`;
-            const { data } = await axios.get(url, { params: { page: pageNo } });
-            const results = data
+            // const url = `https://api.consumet.org/meta/anilist/info/${id}`;
+            // const { data } = await axios.get(url, { params: { page: pageNo } });
+            const getAnime = new META.Anilist();
+            const results = await getAnime.fetchAnimeInfo(id);
             return results
         } catch (err) {
             console.log(err)

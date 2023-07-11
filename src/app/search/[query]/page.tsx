@@ -3,15 +3,18 @@ import Card from "@/components/Card";
 import { useInfiniteQuery, useQuery } from "react-query";
 import LoadingPage from "@/components/LoadingPage";
 import axios from "axios";
+import { META } from "@consumet/extensions";
 
 const SearchPage = ({ params }: any) => {
   const { query } = params;
 
-  const fetchAnime = async (id: string, pageNo: Number) => {
-    const url = `https://api.consumet.org/meta/anilist/${id}`;
+  const fetchAnime = async (id: string, pageNo: any) => {
+    // const url = `https://api.consumet.org/meta/anilist/${id}`;
     try {
-      const { data } = await axios.get(url, { params: { page: pageNo || 1 } });
-      const results = data;
+      // const { data } = await axios.get(url, { params: { page: pageNo || 1 } });
+      const getAnime = new META.Anilist();
+      const results = await getAnime.search(id, pageNo || 1);
+      // const results = data;
       return results;
     } catch (err: any) {
       throw new Error(err.message);

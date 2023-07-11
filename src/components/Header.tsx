@@ -10,6 +10,7 @@ import SignUpModal from "./SignUpModal";
 import { useAuth } from "../context/UserContext";
 import Image from "next/image";
 import { useState } from "react";
+import Nav from "./Nav";
 
 const Header = () => {
   const { user } = useAuth();
@@ -20,7 +21,7 @@ const Header = () => {
     <>
       <header
         id="header"
-        className="z-[200] py-4 bg-blend-multiply bg-teal-600"
+        className="z-[200] py-4 bg-gradient-to-tr from-teal-600 to-teal-400"
       >
         <nav className="flex justify-between ">
           <div className="flex items-center justify-center">
@@ -35,14 +36,7 @@ const Header = () => {
               <Image src={logo} alt="logo" className="w-[10rem]" />
             </Link>
             <div className="hidden md:flex justify-between ">
-              <ul className="flex justify-center items-center">
-                <Link href="/">
-                  <li className="list-none mx-4 text-teal-400">HOME</li>
-                </Link>
-                <Link href="/">
-                  <li className="list-none mx-4 text-teal-400">CONTACT US</li>
-                </Link>
-              </ul>
+              <Nav />
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -64,15 +58,14 @@ const Header = () => {
           </div>
         </nav>
         <div
-          className={`${!searchBar&&"hidden"} transition-all md:hidden`}
+          className={`${!searchBar && "hidden"} transition-all md:hidden`}
         >
-          <Form search={setSearchBar}/>
+          <Form search={setSearchBar} />
         </div>
       </header>
       <aside
-        className={`fixed left-0 transition-transform top-0 bottom-0 ${
-          !menuOpen ? "translate-x-[-1000%]" : "translate-x-0"
-        } z-[1000] w-[12rem] md:hidden  overflow-hidden overflow-y-scroll hide-scrollbar text-center text-slate-300  bg-opacity-90 backdrop-filter backdrop-blur-xl  bg-blend-multiply bg-teal-600  z-[100
+        className={`fixed left-0 transition-transform top-0 bottom-0 ${!menuOpen ? "translate-x-[-1000%]" : "translate-x-0"
+          } z-[1000] w-[12rem] md:hidden  overflow-hidden overflow-y-scroll hide-scrollbar text-center text-slate-300  bg-opacity-90 backdrop-filter backdrop-blur-xl  bg-blend-multiply bg-teal-600  z-[100
         ]`}
       >
         <div className="flex flex-col h-full">

@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { UserProvider } from "../context/UserContext.jsx";
 import { AnimeProvider } from "../context/AnimeContext.jsx";
+// import { DbProvider } from "../context/DbContext.jsx";
 import QueryWrapper from "@/wrappers/queryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,14 +23,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`max-w-screen-2xl mx-auto min-h-screen ${inter.className}`}>
+      <body
+        className={`max-w-screen-2xl mx-auto min-h-screen ${inter.className}`}
+      >
         <QueryWrapper>
           <UserProvider>
-            <AnimeProvider>
-              <Header />
-              <Suspense fallback={<Loading />}>{children}</Suspense>
-              <Footer />
-            </AnimeProvider>
+            {/* <DbProvider> */}
+              <AnimeProvider>
+                <Header />
+                <Suspense fallback={<Loading />}>{children}</Suspense>
+                <Footer />
+              </AnimeProvider>
+            {/* </DbProvider> */}
           </UserProvider>
         </QueryWrapper>
       </body>
