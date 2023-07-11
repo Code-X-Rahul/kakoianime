@@ -22,7 +22,7 @@ const AnimePage = ({ params }: any) => {
         }
     };
 
-    const info = useQuery({
+    const info: any = useQuery({
         queryKey: ['info', animeId],
         queryFn: () => fetchAnimeInfo(animeId)
     })
@@ -62,4 +62,4 @@ const AnimePage = ({ params }: any) => {
     }
 }
 
-export default Anime
+export default AnimePage

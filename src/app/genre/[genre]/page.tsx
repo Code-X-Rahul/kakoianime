@@ -12,7 +12,7 @@ const SortOrder = {
   Action: "Action",
 };
 
-const page = ({ params }: Props) => {
+const FetchByGenre = ({ params }: Props) => {
   const { genre } = params;
 
   const datas = {
@@ -41,4 +41,4 @@ const page = ({ params }: Props) => {
   );
 };
 
-export default page;
+export default FetchByGenre;
