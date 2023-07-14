@@ -15,34 +15,36 @@ import { useState, useRef } from "react"
 const SignUpModal = () => {
     const [login, setLogin] = useState(true)
     const userName = useRef<HTMLInputElement>(null);
+    const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const confirmPassword = useRef<HTMLInputElement>(null);
 
-    const { user, signIn, signUp, gLogin } = useAuth()
+    const { user,create ,LogInUser} = useAuth()
 
-
-    const userHandler = async (e:any) => {
+    const userHandler = async (e: any) => {
         e.preventDefault()
         try {
             if (login) {
-                await signIn(userName?.current?.value, password?.current?.value)
+                // await signIn(userName?.current?.value, password?.current?.value)
+                await LogInUser(email?.current?.value, password?.current?.value)
                 alert("login")
                 return
             }
             if (password?.current?.value !== confirmPassword?.current?.value) return alert("password does not match")
-            await signUp(userName?.current?.value, password?.current?.value)
-        } catch (error:any) {
+            // await signUp(userName?.current?.value, password?.current?.value)
+            await create(email?.current?.value, password?.current?.value,userName?.current?.value)
+        } catch (error: any) {
             alert(error.message)
-            
+
         }
     }
-    const googleLogin = async () => {
-        try {
-            await gLogin()
-        } catch (error:any) {
-            alert(error.message)
-        }
-    }
+    // const googleLogin = async () => {
+    //     try {
+    //         await gLogin()
+    //     } catch (error: any) {
+    //         alert(error.message)
+    //     }
+    // }
 
 
     return (
@@ -56,12 +58,13 @@ const SignUpModal = () => {
                     <DialogDescription className="flex justify-center items-center">
                         <button onClick={() => setLogin(true)} className={`text-2xl font-bold mx-2 ${login ? "text-teal-500" : "text-gray-400"}`}>Login</button>
                         <button onClick={() => setLogin(false)} className={`text-2xl font-bold mx-2 ${login ? "text-gray-400" : "text-teal-500"}`}>Sign Up</button>
-                        <button onClick={googleLogin} className={`text-2xl font-bold mx-2 ${login ? "text-gray-400" : "text-teal-500"}`}>Google</button>
+                        {/* <button onClick={googleLogin} className={`text-2xl font-bold mx-2 ${login ? "text-gray-400" : "text-teal-500"}`}>Google</button> */}
 
                     </DialogDescription>
                 </DialogHeader>
-                <form className="flex flex-col justify-center items-center">
+                <form onSubmit={userHandler} className="flex flex-col justify-center items-center">
                     <input ref={userName} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="text" placeholder="Username" />
+                    <input ref={email} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="email" placeholder="Email" />
                     <input ref={password} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="password" placeholder="Password" />
                     {!login && <input ref={confirmPassword} className="border-2 border-gray-400 p-2 rounded-lg my-2" type="password" placeholder="Confirm Password" />}
                     <button onClick={userHandler} className="bg-teal-500 text-white p-2 rounded-lg my-2">{login ? "Login" : "Sign Up"}</button>

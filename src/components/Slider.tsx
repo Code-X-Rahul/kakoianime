@@ -17,7 +17,7 @@ const Slider = ({
           {type &&
             variant === undefined &&
             type?.map((anime: any) => (
-              <Card key={anime?.id} height="72" width="10rem" {...anime} />
+              <Card key={anime?.id} height="full" width="10rem" {...anime} />
             ))}
           {type &&
             variant === "iScroll" &&

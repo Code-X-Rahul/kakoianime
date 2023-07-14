@@ -3,20 +3,20 @@ import Slider from "../../components/Slider";
 import Card from "../../components/Card";
 import { EmblaCarousel } from "@/components/EmblaCarousel";
 import { useInfiniteQuery, useQuery } from "react-query";
-import { useAnime } from "@/context/AnimeContext";
 import LoadingPage from "@/components/LoadingPage";
+// import { useAuth } from "@/context/UserContext";
+import { fetchPAnime, fetchRAnime, fetchTAnime } from "@/libs/consumet";
 
 const Home = () => {
-  const { fetchPAnime, fetchRAnime, fetchTAnime } = useAnime();
-
+  // const { logout } = useAuth()
   const trendingAnime = useQuery({
     queryKey: ["trendingQuery"],
-    queryFn: () => fetchTAnime(),
+    queryFn: () => fetchTAnime(1),
   });
 
   const popularQuery = useQuery({
     queryKey: ["popularQuery"],
-    queryFn: () => fetchPAnime(),
+    queryFn: () => fetchPAnime(1, 10),
   });
 
   const {
@@ -52,6 +52,9 @@ const Home = () => {
   return (
     <>
       <EmblaCarousel {...trendingAnime?.data} />
+      {/* <button onClick={logout}>
+        Logout
+      </button> */}
       <section className="scroll-smooth">
         <Slider type={trendingAnime?.data?.results} heading="Trending Anime" />
         <Slider type={popularQuery?.data?.results} heading="Popular Anime" />
@@ -59,10 +62,10 @@ const Home = () => {
           <h1 className="text-3xl text-yellow-500 px-4 py-2 ">
             Recent Episodes
           </h1>
-          <div className="grid gap-2 grid-cols-2 px-4 py-2  h-auto md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
+          <div className="grid gap-4 grid-cols-2 px-4 py-2  h-auto md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
             {recentAnime?.pages?.map((page: any) =>
-              page?.results.map((anime: any) => (
-                <Card key={anime?.id} height="full" width="100%" {...anime} />
+              page?.results.map((anime: any, idx: any) => (
+                <Card key={`${anime?.id}${idx}`} height="full" width="100%" {...anime} />
               ))
             )}
           </div>

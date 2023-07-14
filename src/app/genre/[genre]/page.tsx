@@ -1,44 +1,68 @@
 "use client";
-import axios from "axios";
 import { useInfiniteQuery, useQuery } from "react-query";
+import Loading from '../../loading';
+import { fetchByFilter } from "@/libs/consumet";
+import FilterSelect from "@/components/FilterSelect";
+import { useState } from "react";
+import {
+  genresArr,
+  formatArr,
+  statusArr,
+  seasonArr
+} from '@/utils/filters'
 
-type Props = {
+const data = {
+  query: null,
+  type: null,
+  page: null,
+  perPage: null,
+  format: null,
+  sort: null,
+  genres: null,
+  id: null,
+  year: null,
+  status: null,
+  season: null,
+}
+
+function FetchByGenre({ params, searchParams }: {
   params: {
     genre: string;
   };
-};
-
-const SortOrder = {
-  Action: "Action",
-};
-
-const FetchByGenre = ({ params }: Props) => {
+  searchParams: {
+    id: string;
+  };
+}) {
   const { genre } = params;
+  const { id } = searchParams;
+  const [type, setType] = useState<string | undefined>()
+  const [genres, setGenres] = useState<string[]>([])
+  const [season, setSeason] = useState<string | undefined>()
+  const [status, setStatus] = useState<string | undefined>()
 
-  const datas = {
-    genre: SortOrder.Action,
-  };
+  const Genres = [genre];
 
-  const fetchAnimeByGenre = async ({ genre, pageParam }: any) => {
-    const url = "https://api.consumet.org/meta/anilist/advanced-search";
-    try {
-      const { data: results } = await axios.get(url);
-      console.log(results);
-      return results;
-    } catch (err: any) {
-      throw new Error(err.message);
-    }
-  };
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["search", genre],
-    queryFn: () => fetchAnimeByGenre(genre),
+    queryKey: ["genre", Genres],
+    queryFn: () => fetchByFilter(undefined, undefined, undefined, undefined, undefined, undefined, Genres, undefined, undefined, undefined, undefined),
   });
+
+
+  if (isLoading) return <h1>Loading...</h1>;
+  console.log(genre, ":", data);
+
 
   return (
     <div>
-      <h1 className="text-3xl text-white font-semibold m-4">Genre: {genre}</h1>
-    </div>
+      <div className='text-slate-100 p-4'>
+        <FilterSelect setState={setType} placeholder={"Type"} array={formatArr} />
+        <FilterSelect setState={setSeason} placeholder={"Season"} array={seasonArr} />
+        <FilterSelect setState={setStatus} placeholder={"Status"} array={statusArr} />
+        <FilterSelect setState={setGenres} placeholder={"Genres"} array={genresArr} />
+      </div>
+      <h1 className="text-3xl text-white font-semibold m-4">Genre: {genre}{id}</h1>
+    </div >
   );
-};
+}
 
 export default FetchByGenre;

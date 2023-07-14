@@ -14,7 +14,7 @@ export function useAuth() {
 }
 
 export function DbProvider({ children }: any) {
-  const addDoc = async (collection: any, data: any) => {
+  const addToWatchlist = async (collection: any, data: any) => {
     try {
       const docRef = await addDoc(collection(db, collection), data);
       console.log("Document written with ID: ", docRef);
@@ -23,5 +23,5 @@ export function DbProvider({ children }: any) {
     }
   };
   
-  return <DbContext.Provider value={{addDoc}}>{children}</DbContext.Provider>;
+  return <DbContext.Provider value={{addToWatchlist}}>{children}</DbContext.Provider>;
 }

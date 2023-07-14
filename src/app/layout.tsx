@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter, Roboto } from "next/font/google";
 import { UserProvider } from "../context/UserContext.jsx";
-import { AnimeProvider } from "../context/AnimeContext.jsx";
 // import { DbProvider } from "../context/DbContext.jsx";
 import QueryWrapper from "@/wrappers/queryProvider";
 import Header from "@/components/Header";
@@ -30,11 +29,9 @@ export default function RootLayout({
         <QueryWrapper>
           <UserProvider>
             {/* <DbProvider> */}
-            <AnimeProvider>
               <Header />
               <Suspense fallback={<Loading />}>{children}</Suspense>
               <Footer />
-            </AnimeProvider>
             {/* </DbProvider> */}
           </UserProvider>
         </QueryWrapper>

@@ -12,14 +12,14 @@ const Card = ({ image, title, id, status, height, width }: any) => {
     <>
       <Link
         href={`../anime/${id}`}
-        className={` relative w-[${width}] h-${height} overflow-hidden rounded-sm hover:scale-105 transition-all ease-in grid`}
+        className={` relative w-[${width}] h-${height} overflow-hidden rounded-sm hover:scale-105 transition-all ease-in`}
       >
-        <div className="bg-zinc-900">
+        <div className={`bg-zinc-900 aspect-[1/1.3]`}>
           <Image
             width={"100"}
             height={"100"}
             src={image}
-            className="flex w-[100%] h-full object-cover hover:opacity-60"
+            className="flex w-[100%] h-[100%] object-cover hover:opacity-60"
             alt={title?.romaji}
           />
         </div>
