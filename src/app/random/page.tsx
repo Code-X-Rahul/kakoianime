@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef } from 'react'
 import { useInfiniteQuery } from 'react-query';
 import { fetchRandomAnime } from '@/libs/consumet';
