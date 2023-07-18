@@ -52,9 +52,6 @@ const Home = () => {
   return (
     <>
       <EmblaCarousel {...trendingAnime?.data} />
-      {/* <button onClick={logout}>
-        Logout
-      </button> */}
       <section className="scroll-smooth">
         <Slider type={trendingAnime?.data?.results} heading="Trending Anime" />
         <Slider type={popularQuery?.data?.results} heading="Popular Anime" />

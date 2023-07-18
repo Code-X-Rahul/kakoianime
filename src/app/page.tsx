@@ -1,20 +1,19 @@
 import Link from "next/link";
 
 export default function Home() {
+  const bgStyles = {
+    // backgroundImage: "url(/images/bg.jpg)",
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
+    // backgroundRepeat: "no-repeat",
+  }
   return (
-    <>
+    <main style={bgStyles}>
       <div className="my-8">
         <h1 className="text-3xl font-bold text-center text-teal-400">
           Welcome to KakoiAnime
         </h1>
       </div>
-      {/* <ul className="flex w-full p-4">
-          <li className="list-none text-sm text-teal-400 px-5">Home</li>
-          <li className="list-none text-sm text-teal-400 px-5">TV Series</li>
-          <li className="list-none text-sm text-teal-400 px-5">Most Popular</li>
-          <li className="list-none text-sm text-teal-400 px-5">Top Airing</li>
-          <li className="list-none text-sm text-teal-400 px-5">Movies</li>
-        </ul> */}
       <div className=" flex justify-center items-center">
         <Link href={"/home"} className="text-slate-300 text-3xl bg-zinc-900 rounded-xl p-4 mx-auto border-white">
           Go to Home
@@ -37,6 +36,6 @@ export default function Home() {
           Please help us by sharing this site with your friends. Thanks!
         </p>
       </div>
-    </>
+    </main>
   );
 }

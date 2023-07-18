@@ -57,7 +57,6 @@ export const genresArr = [
   genresOptions.Drama,
   genresOptions.Fantasy,
   genresOptions.Horror,
-  genresOptions.MahouShoujo,
   genresOptions.Mecha,
   genresOptions.Music,
   genresOptions.Mystery,

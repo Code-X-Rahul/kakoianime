@@ -60,3 +60,4 @@ export const fetchRandomAnime = async ({ pageParam }: any) => {
   const results = await getAnime.fetchRandomAnime();
   return results;
 };
+
