@@ -6,7 +6,7 @@ import QueryWrapper from "@/wrappers/queryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "../loading";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({weight:"400", subsets: ["vietnamese"]});

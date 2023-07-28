@@ -1,8 +1,7 @@
 "use client";
 import Card from "@/components/Card";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import LoadingPage from "@/components/LoadingPage";
-import axios from "axios";
 import { META } from "@consumet/extensions";
 
 const SearchPage = ({ params }: any) => {

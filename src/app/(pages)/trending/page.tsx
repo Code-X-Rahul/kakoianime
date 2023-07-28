@@ -8,7 +8,6 @@ import LoadingPage from '@/components/LoadingPage';
 const TrendingPage = () => {
     const bottom = useRef(null);
 
-
     const {
         data,
         isLoading,

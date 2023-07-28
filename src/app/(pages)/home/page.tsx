@@ -1,6 +1,6 @@
 "use client";
-import Slider from "../../components/Slider";
-import Card from "../../components/Card";
+import Slider from "@/components/Slider";
+import Card from "@/components/Card";
 import { EmblaCarousel } from "@/components/EmblaCarousel";
 import { useInfiniteQuery, useQuery } from "react-query";
 import LoadingPage from "@/components/LoadingPage";

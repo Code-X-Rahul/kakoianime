@@ -18,7 +18,7 @@ const Form = ({search}:any) => {
   return (
     <form className="flex items-center justify-center relative pt-3 w-[90%] mx-auto">
       <input
-        className="text-black w-[100%] mx-auto h-8 px-4 rounded-2xl"
+        className="text-black w-[100%] mx-auto h-8 px-4 rounded-xs bg-slate-50"
         type="text"
         placeholder="One Piece"
         value={query}

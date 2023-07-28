@@ -1,8 +1,7 @@
 'use client'
-import AnimeInfo from "../../../components/AnimeInfo";
+import AnimeInfo from "@/components/AnimeInfo";
 import { DiscussionEmbed } from "disqus-react";
-import LoadingPage from "../../../components/LoadingPage";
-import { FaStar } from "react-icons/fa";
+import LoadingPage from "@/components/LoadingPage";
 import { META } from "@consumet/extensions";
 import { useQuery } from "react-query";
 import DetailsBanner from "@/components/Details-Banner";

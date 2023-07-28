@@ -1,6 +1,6 @@
 "use client";
 import { useInfiniteQuery, useQuery } from "react-query";
-import Loading from '../../loading';
+import Loading from '@/loading';
 import { fetchByFilter } from "@/libs/consumet";
 import FilterSelect from "@/components/FilterSelect";
 import { useState } from "react";
