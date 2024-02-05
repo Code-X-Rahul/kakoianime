@@ -44,8 +44,8 @@ const Home = () => {
   if (trendingAnime.isLoading || popularQuery.isLoading || isLoading)
     return <LoadingPage />;
 
-  if (trendingAnime.isError || isError)
-    return <h1>Error loading trendingAnime or recentAnime!!!</h1>;
+  // if (trendingAnime.isError || isError)
+  //   return <h1>Error loading trendingAnime or recentAnime!!!</h1>;
 
   if (popularQuery.isError) return <h1>Error loading popularAnime!!!</h1>;
 

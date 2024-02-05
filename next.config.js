@@ -20,6 +20,12 @@ const nextConfig = {
             port: '',
             pathname: '/file/anilistcdn/character/large/**',
           },
+          {
+            protocol: 'https',
+            hostname: "gogocdn.net",
+            port: '',
+            pathname: '/cover/**',
+          },
         ],
       },
 }
